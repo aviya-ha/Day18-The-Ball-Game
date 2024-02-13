@@ -12,7 +12,7 @@ body{
     align-items: center;
     display: grid;
     grid-template-columns: 0.5fr ;
-    grid-template-rows: 1fr 9fr ;
+    grid-template-rows: 1fr 6fr 6fr ;
 
 }
 
@@ -35,3 +35,15 @@ h1{
     transition: all 1s;
 }
 
+.ball2{
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(237, 173, 70);
+    transition: all 1s;
+}
