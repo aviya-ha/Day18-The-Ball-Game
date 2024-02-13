@@ -1,17 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+
 
 body{
+    margin:10px auto;
+    width: 100vw;
     background-color: rgb(15, 14, 14);
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 0.5fr ;
+    grid-template-rows: 1fr 9fr ;
+
 }
 
 h1{
     color: rgb(240, 238, 238);
+    align-self: center;
+    justify-self: center;
 }
 
 .ball{
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100px;
     width: 100px;
     border-radius: 50%;
     background-color: rgb(255, 0, 119);
-    text-align: center;
-    margin-left: calc(50vw - 100px/2);
 }
+
