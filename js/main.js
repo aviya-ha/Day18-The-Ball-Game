@@ -2,7 +2,7 @@
 var gCurrSize = 100
 
 function onBallClick() {
-    const addingSize = 50
+    const addingSize = getRandomInt(20,60)
     const elBall = document.querySelector('.ball')
     const elBallSize = document.querySelector('.ball-size')
     if(gCurrSize < 400){
