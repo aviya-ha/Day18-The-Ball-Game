@@ -44,6 +44,10 @@ function OnThirdBall() {
     else gIsBallThreeClicked = false
 }
 
+function OnFourBall(){
+    
+}
+
 function changeColor(elBall,currBallClass) {
     if (currBallClass === '.ball') {
         gCurrColorBall = getRandomColor()
