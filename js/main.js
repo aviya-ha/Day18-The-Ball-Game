@@ -6,6 +6,7 @@ var gCurrColorBall2 = 'rgb(237, 173, 70)'
 var gIsBallThreeClicked = false
 var gCurrSize
 const maxDiameter = 400
+const minDiameter = 100
 
 
 function onBallClick(ball) {
@@ -16,13 +17,11 @@ function onBallClick(ball) {
         gCurrSize = gCurrSizeBall
     } else {
         gCurrSize = gCurrSizeBall2
-        console.log('gCurrSize:', gCurrSize)
     }
     changeColor(elBall,currBallClass)
-    changeSize(elBall,addingSize)
+    changeSizeUp(elBall,addingSize)
     changeInnerText(elBall, addingSize)
-    console.log('gCurrSize:', gCurrSize)
-    
+
     if (currBallClass === '.ball') {
         gCurrSizeBall = gCurrSize
     } else {
@@ -45,7 +44,25 @@ function OnThirdBall() {
 }
 
 function OnFourBall(){
-    
+    const reducedSize = getRandomInt(20, 60)
+    const elBall = document.querySelector('.ball')
+    const elBall2 = document.querySelector('.ball2')
+    var ball = elBall
+    if (ball === elBall){
+        console.log('elBall:', elBall)
+        gCurrSize = gCurrSizeBall
+        changeSizeDown(ball, reducedSize)
+        changeInnerTextDown(ball,reducedSize)
+        gCurrSizeBall = gCurrSize
+        ball = elBall2
+    }
+    if (ball === elBall2){
+        gCurrSize = gCurrSizeBall2
+        changeSizeDown(ball, reducedSize)
+        changeInnerTextDown(ball,reducedSize)
+        gCurrSizeBall2 = gCurrSize
+        ball = elBall
+    }
 }
 
 function changeColor(elBall,currBallClass) {
@@ -60,26 +77,42 @@ function changeColor(elBall,currBallClass) {
     }
 }
 
-function changeSize(elBall, addingSize) {
-    console.log('elBall:', elBall)
+function changeSizeDown(elBall, reducedSize) {
+    if (gCurrSize - reducedSize < minDiameter) {
+        gCurrSize = 100
+        elBall.style.width = gCurrSize + 'px'
+        elBall.style.height = gCurrSize + 'px'
+    } else {
+        elBall.style.width = gCurrSize - reducedSize + 'px'
+        elBall.style.height = gCurrSize - reducedSize + 'px'
+        gCurrSize -= reducedSize
+    }
+}
+
+function changeSizeUp(elBall, addingSize) {
     if (gCurrSize + addingSize > maxDiameter) {
         gCurrSize = 100
         elBall.style.width = gCurrSize + 'px'
         elBall.style.height = gCurrSize + 'px'
     } else {
-        console.log('gCurrSize:', gCurrSize)
         elBall.style.width = gCurrSize + addingSize + 'px'
         elBall.style.height = gCurrSize + addingSize + 'px'
         gCurrSize += addingSize
     }
 }
 
-function changeInnerText(elBall,addingSize) {
-    if (gCurrSize + addingSize > maxDiameter) {
-        console.log('gCurrSize:', gCurrSize)
+function changeInnerTextDown(elBall,reducedSize) {
+    if (gCurrSize - reducedSize < minDiameter) {
         elBall.innerText = gCurrSize
     } else {
-        console.log('gCurrSize:', gCurrSize)
+        elBall.innerText = gCurrSize
+    }
+}
+
+function changeInnerText(elBall,addingSize) {
+    if (gCurrSize + addingSize > maxDiameter) {
+        elBall.innerText = gCurrSize
+    } else {
         elBall.innerText = gCurrSize
     }
 }
