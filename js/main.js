@@ -2,7 +2,7 @@
 var gCurrSizeBall = 100
 var gCurrColorBall = 'rgb(255, 0, 119)'
 var gCurrSizeBall2 = 100
-var gCurrColorBall2 = 'rgb(237, 173, 70)'
+var gCurrColorBall2 = 'rgb(166, 0, 255)'
 var gIsBallThreeClicked = false
 var gCurrSize = 0
 const maxDiameter = 400
@@ -75,7 +75,7 @@ function OnSixBall() {
     gCurrColorBall = 'rgb(255, 0, 119)'
     gCurrSizeBall = 100
     gCurrSizeBall2 = 100
-    gCurrColorBall2 = 'rgb(237, 173, 70)'
+    gCurrColorBall2 = 'rgb(166, 0, 255)'
     gIsBallThreeClicked = false
     gCurrSize = 0
     const elBall = document.querySelector('.ball1')
@@ -89,7 +89,7 @@ function OnSixBall() {
     elBall.style.height = gCurrSizeBall + 'px'
     elBall.innerText = gCurrSizeBall
 
-    elBall2.style.backgroundColor = gCurrColorBall
+    elBall2.style.backgroundColor = gCurrColorBall2
     elBall2.style.width = gCurrSizeBall + 'px'
     elBall2.style.height = gCurrSizeBall + 'px'
     elBall2.innerText = gCurrSizeBall
@@ -184,3 +184,4 @@ function switchColor(elBall, elBall2) {
         elBall2.style.backgroundColor = gCurrColorBall2
     }
 }
+
