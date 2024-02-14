@@ -65,6 +65,11 @@ function OnFourBall(){
     }
 }
 
+function OnFifthBall(){
+    const elBody = document.querySelector('body')
+    elBody.style.backgroundColor = getRandomColor()
+}
+
 function changeColor(elBall,currBallClass) {
     if (currBallClass === '.ball') {
         gCurrColorBall = getRandomColor()
