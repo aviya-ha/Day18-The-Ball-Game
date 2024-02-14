@@ -17,7 +17,7 @@ body{
     "header header"
     "ball1 ball2"
     "ball3 ball4"
-    "ball5 .";
+    "ball5 ball6";
 
 
 }
@@ -29,8 +29,7 @@ h1{
     justify-self: center;
 }
 
-.ball{
-    grid-area: ball1;
+.balls{
     align-self: center;
     justify-self: center;
     display: flex;
@@ -41,70 +40,35 @@ h1{
     font-size: 22px;
     font-weight: bold;
     border-radius: 50%;
-    background-color: rgb(255, 0, 119);
     transition: all 1s;
+}
+
+.ball1{
+    grid-area: ball1;
+    background-color: rgb(255, 0, 119);
 }
 
 .ball2{
     grid-area: ball2;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 50%;
     background-color: rgb(166, 0, 255);
-    transition: all 1s;
 }
 
 .ball3{
     grid-area: ball3;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 50%;
     background-color: rgb(70, 237, 173);
-    transition: all 1s;
 }
 
 .ball4{
     grid-area: ball4;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 50%;
     background-color: rgb(70, 237, 98);
-    transition: all 1s;
 }
 
 .ball5{
     grid-area: ball5;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 50%;
     background-color: rgb(70, 178, 237);
-    transition: all 1s;
+}
+
+.ball6{
+    grid-area: ball6;
+    background-color: rgb(70, 114, 237); 
 }

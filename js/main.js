@@ -4,7 +4,7 @@ var gCurrColorBall = 'rgb(255, 0, 119)'
 var gCurrSizeBall2 = 100
 var gCurrColorBall2 = 'rgb(237, 173, 70)'
 var gIsBallThreeClicked = false
-var gCurrSize
+var gCurrSize = 0
 const maxDiameter = 400
 const minDiameter = 100
 
@@ -13,16 +13,16 @@ function onBallClick(ball) {
     var addingSize = getRandomInt(20, 60)
     const currBallClass = '.' + ball.classList[0]
     const elBall = document.querySelector(currBallClass)
-    if (currBallClass === '.ball') {
+    if (currBallClass === '.ball1') {
         gCurrSize = gCurrSizeBall
     } else {
         gCurrSize = gCurrSizeBall2
     }
-    changeColor(elBall,currBallClass)
-    changeSizeUp(elBall,addingSize)
+    changeColor(elBall, currBallClass)
+    changeSizeUp(elBall, addingSize)
     changeInnerText(elBall, addingSize)
 
-    if (currBallClass === '.ball') {
+    if (currBallClass === '.ball1') {
         gCurrSizeBall = gCurrSize
     } else {
         gCurrSizeBall2 = gCurrSize
@@ -30,9 +30,9 @@ function onBallClick(ball) {
 }
 
 function OnThirdBall() {
-    const elBall = document.querySelector('.ball')
+    const elBall = document.querySelector('.ball1')
     const elBall2 = document.querySelector('.ball2')
-    
+
     var temBallSize = gCurrSizeBall
     var temBall2Size = gCurrSizeBall2
 
@@ -43,34 +43,59 @@ function OnThirdBall() {
     else gIsBallThreeClicked = false
 }
 
-function OnFourBall(){
+function OnFourBall() {
     const reducedSize = getRandomInt(20, 60)
-    const elBall = document.querySelector('.ball')
+    const elBall = document.querySelector('.ball1')
     const elBall2 = document.querySelector('.ball2')
     var ball = elBall
-    if (ball === elBall){
+    if (ball === elBall) {
         console.log('elBall:', elBall)
         gCurrSize = gCurrSizeBall
         changeSizeDown(ball, reducedSize)
-        changeInnerTextDown(ball,reducedSize)
+        changeInnerTextDown(ball, reducedSize)
         gCurrSizeBall = gCurrSize
         ball = elBall2
     }
-    if (ball === elBall2){
+    if (ball === elBall2) {
         gCurrSize = gCurrSizeBall2
         changeSizeDown(ball, reducedSize)
-        changeInnerTextDown(ball,reducedSize)
+        changeInnerTextDown(ball, reducedSize)
         gCurrSizeBall2 = gCurrSize
         ball = elBall
     }
 }
 
-function OnFifthBall(){
+
+function OnFifthBall() {
     const elBody = document.querySelector('body')
     elBody.style.backgroundColor = getRandomColor()
 }
 
-function changeColor(elBall,currBallClass) {
+function OnSixBall() {
+    gCurrColorBall = 'rgb(255, 0, 119)'
+    gCurrSizeBall = 100
+    gCurrSizeBall2 = 100
+    gCurrColorBall2 = 'rgb(237, 173, 70)'
+    gIsBallThreeClicked = false
+    gCurrSize = 0
+    const elBall = document.querySelector('.ball1')
+    const elBall2 = document.querySelector('.ball2')
+    const elBody = document.querySelector('body')
+
+    elBody.style.backgroundColor = 'rgb(15, 14, 14)'
+
+    elBall.style.backgroundColor = gCurrColorBall
+    elBall.style.width = gCurrSizeBall + 'px'
+    elBall.style.height = gCurrSizeBall + 'px'
+    elBall.innerText = gCurrSizeBall
+
+    elBall2.style.backgroundColor = gCurrColorBall
+    elBall2.style.width = gCurrSizeBall + 'px'
+    elBall2.style.height = gCurrSizeBall + 'px'
+    elBall2.innerText = gCurrSizeBall
+}
+
+function changeColor(elBall, currBallClass) {
     if (currBallClass === '.ball') {
         gCurrColorBall = getRandomColor()
         elBall.style.backgroundColor = gCurrColorBall
@@ -106,7 +131,7 @@ function changeSizeUp(elBall, addingSize) {
     }
 }
 
-function changeInnerTextDown(elBall,reducedSize) {
+function changeInnerTextDown(elBall, reducedSize) {
     if (gCurrSize - reducedSize < minDiameter) {
         elBall.innerText = gCurrSize
     } else {
@@ -114,7 +139,7 @@ function changeInnerTextDown(elBall,reducedSize) {
     }
 }
 
-function changeInnerText(elBall,addingSize) {
+function changeInnerText(elBall, addingSize) {
     if (gCurrSize + addingSize > maxDiameter) {
         elBall.innerText = gCurrSize
     } else {
